@@ -1,6 +1,7 @@
 export default {
   commons: {
     project_permission: 'Please add the project permission first',
+    no_permission:'No permission yet',
     failure_continues: "Failure continues",
     full_screen_editing: "Full screen editing",
     trash: "Trash",
@@ -861,6 +862,7 @@ export default {
     select_type: 'please select type',
     view_permission: 'view permission',
     system: 'System',
+    personal: 'Personal Information',
     organization: 'Organization',
     workspace: 'Workspace',
     project: 'Project',
@@ -934,12 +936,13 @@ export default {
     not_exist: "Test report does not exist",
     batch_delete: "Delete reports in bulk",
     delete_batch_confirm: 'Confirm batch delete report',
-    response_time: 'Response Time(s)',
+    response_time: 'Response(s)',
     max_users: 'VUs',
     file_id: 'Report File ID',
     avg_response_time: 'Average Response Time',
     tps: 'Transactions Per Second',
-    plan_share_url: 'Whether the link jump is logged in'
+    plan_share_url: 'Whether the link jump is logged in',
+    rename_report: 'Rename report'
   },
   load_test: {
     id: 'Load Test ID',
@@ -991,6 +994,7 @@ export default {
     ramp_up_time_within: 'In',
     ramp_up_time_minutes: 'seconds, separate',
     ramp_up_time_seconds: 'seconds add VUs',
+    ramp_up_tips: 'The RampUp is too large, the chart rendering will not be displayed, this does not affect the test execution, please refer to the actual results',
     iterate_num: 'Iterations',
     by_iteration: 'By iterations',
     by_duration: 'By duration',
@@ -1132,6 +1136,16 @@ export default {
       delete_mock_expect: "Confirm to delete this expect info ?",
       rule: {
         input_code: "Please input HTTP Code"
+      },
+      range_type:{
+        value_eq: "value=",
+        value_not_eq: "value!=",
+        value_contain:"include=",
+        length_eq: "length=",
+        length_not_eq: "length!=",
+        length_large_than:"length>",
+        length_shot_than:"length<",
+        regular_match: "Regular match",
       }
     },
     definition: {
@@ -1812,6 +1826,7 @@ export default {
         swagger_schedule: "swagger",
         confirm: {
           close_title: "Do you want to close this scheduled task？",
+          open_title: "Do you want to start this scheduled task?？",
         }
       }
     },
@@ -2098,6 +2113,11 @@ export default {
       test_plan_load_case_count: "Load case count",
       test_plan_component_case_count: "Component Case Count",
       data_name: "Data Name",
+      test_plan_batch_switch: "batch on/off scheduled tasks",
+      batch_update_schedule_enable: 'update the scheduled task status of {0} test plans',
+      batch_update_schedule_enable_alert: 'note: only test plans with scheduled tasks can be updated',
+      next_run_time: 'next running time',
+      schedule_enabled: 'enabled',
       load_case: {
         case: "Load Case",
         execution_status: "Execution status",
@@ -2636,6 +2656,8 @@ export default {
     personal_information_apikeys: "Personal information API Keys",
     auth_title: "Auth",
     group_permission: "Group",
+    error_report_library: "Error report",
+    enterprise_test_report: "Enterprise report",
     change_history: "Change log",
     change_content: "Change content"
   },
@@ -2982,6 +3004,13 @@ export default {
       upload: "UPLOAD",
       delete: "DELETE",
       read: "READ",
+    },
+    personal_information:{
+      name:'Setting',
+      personal_setting: 'Personal Setting',
+      api_keys: 'API Keys',
+      edit_password: "EDIT PASSWORD",
+      third_account: 'Third Account',
     },
     other: {
       track: "Track",
