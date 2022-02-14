@@ -18,6 +18,7 @@
       row-key="id"
       border
       default-expand-all
+      :height="400"
       v-loading="loading">
 
       <el-table-column prop="name" :label="$t('api_test.definition.request.esb_table.name')" width="230">
@@ -130,7 +131,7 @@ export default {
         {value: 'object', label: 'object'},
         {value: 'array', label: 'array'},
         {value: 'string', label: 'string'},
-        {value: 'int', label: 'int'},
+        {value: 'integer', label: 'integer'},
         {value: 'number', label: 'number'},
         {value: 'boolean', label: 'boolean'},
       ],

@@ -1,6 +1,7 @@
 export default {
   commons: {
     project_permission: '請先添加該項目權限',
+    no_permission:'暫無權限',
     failure_continues: "失敗繼續",
     full_screen_editing: "全屏編輯",
     trash: "回收站",
@@ -865,6 +866,7 @@ export default {
     admin_not_allow_delete: '系統用戶組不支持刪除!',
     select_type: '請選擇所屬類型',
     system: '系統',
+    personal: '個人信息',
     organization: '組織',
     workspace: '工作空間',
     project: '項目',
@@ -938,12 +940,13 @@ export default {
     not_exist: "測試報告不存在",
     batch_delete: "批量刪除報告",
     delete_batch_confirm: '確認批量刪除報告',
-    response_time: '響應時間(s)',
+    response_time: '響應(s)',
     max_users: '並發數',
     file_id: '文件ID',
     avg_response_time: '平均響應時間',
     tps: '每秒傳輸的事物處理個數',
-    plan_share_url: '鏈接跳轉是否登陸'
+    plan_share_url: '鏈接跳轉是否登陸',
+    rename_report: '重命名報告'
   },
   load_test: {
     id: '測試ID',
@@ -995,6 +998,7 @@ export default {
     ramp_up_time_within: '在',
     ramp_up_time_minutes: '秒內，分',
     ramp_up_time_seconds: '秒內增加並發用戶',
+    ramp_up_tips: 'RampUp 過大，圖表渲染卡頓不予展示，這並不影響測試執行，請以實際結果為準',
     iterate_num: '叠代次數',
     by_iteration: '按叠代次數',
     by_duration: '按持續時間',
@@ -1138,6 +1142,16 @@ export default {
       delete_mock_expect: "確認刪除這條預期嗎？",
       rule: {
         input_code: "請輸入 HTTP Code"
+      },
+      range_type:{
+        value_eq: "值-等於[value=]",
+        value_not_eq: "值-不等於[value!=]",
+        value_contain:"值-包含[include=]",
+        length_eq: "長度-等于[length=]",
+        length_not_eq: "長度-不等於[length!=]",
+        length_large_than:"長度-大於[length>]",
+        length_shot_than:"長度-小於[length<]",
+        regular_match: "正則匹配",
       }
     },
     definition: {
@@ -1817,6 +1831,7 @@ export default {
         swagger_schedule: "swagger",
         confirm: {
           close_title: "要關閉這條定時任務嗎？",
+          open_title: "要開啟這條定時任務嗎？",
         }
       }
     },
@@ -2097,6 +2112,11 @@ export default {
       test_plan_load_case_count: "性能用例數",
       test_plan_component_case_count: "步驟用例數",
       data_name: "數據名稱",
+      test_plan_batch_switch: "批量開/關定時任務",
+      batch_update_schedule_enable: '更新{0}個測試計畫的定時任務狀態為',
+      batch_update_schedule_enable_alert: '注意：只能更新已設定了定時任務的測試計畫',
+      next_run_time: '下次運行時間',
+      schedule_enabled: '已開啟',
       load_case: {
         case: "性能用例",
         execution_status: "執行狀態",
@@ -2638,6 +2658,8 @@ export default {
     personal_information_apikeys: "個人信息-API Keys",
     auth_title: "系統認證",
     group_permission: "用戶組與權限",
+    error_report_library: "誤報庫",
+    enterprise_test_report: "項目報告",
     change_history: "變更記錄",
     change_content: "變更內容"
   },
@@ -2985,6 +3007,13 @@ export default {
       upload: "點擊上傳",
       delete: "刪除",
       read: "查看腳本",
+    },
+    personal_information:{
+      name:'設置',
+      personal_setting: '個人設置',
+      api_keys: 'API Keys',
+      edit_password: "修改密碼",
+      third_account: '第三方平臺賬號',
     },
     other: {
       track: "測試跟蹤",

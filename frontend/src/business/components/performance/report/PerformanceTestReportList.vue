@@ -27,14 +27,18 @@
             :label="$t('report.test_name')"
             show-overflow-tooltip>
           </el-table-column>
-          <el-table-column
+          <ms-table-column
             prop="name"
+            sortable
             :label="$t('commons.name')"
-            show-overflow-tooltip>
-            <template v-slot:default="scope">
-              <span @click="handleView(scope.row)" style="cursor: pointer;">{{ scope.row.name }}</span>
-            </template>
-          </el-table-column>
+            :show-overflow-tooltip="false"
+            :editable="true"
+            :edit-content="$t('report.rename_report')"
+            @editColumn="openReNameDialog"
+            @click="handleView($event)"
+            min-width="200px">
+          </ms-table-column>
+
           <el-table-column
             v-if="versionEnable"
             :label="$t('project.version.name')"
@@ -94,6 +98,7 @@
           </el-table-column>
           <el-table-column prop="triggerMode" :label="$t('test_track.report.list.trigger_mode')"
                            column-key="triggerMode"
+                           min-width="90"
                            :filters="triggerFilters">
             <template v-slot:default="scope">
               <report-trigger-mode-item :trigger-mode="scope.row.triggerMode"/>
@@ -109,12 +114,9 @@
             </template>
           </el-table-column>
           <el-table-column
-            width="180"
+            min-width="130"
             :label="$t('commons.operating')">
             <template v-slot:default="scope">
-              <ms-table-operator-button :tip="$t('test_track.module.rename')" icon="el-icon-edit"
-                                        v-permission="['PROJECT_PERFORMANCE_REPORT:READ+DELETE']"
-                                        @exec="handleRename(scope.row)" type="success"/>
               <ms-table-operator-button :tip="$t('api_report.detail')" icon="el-icon-s-data"
                                         v-permission="['PROJECT_PERFORMANCE_REPORT:READ']"
                                         @exec="handleView(scope.row)" type="primary"/>
@@ -132,6 +134,8 @@
       </el-card>
     </ms-main-container>
     <same-test-reports ref="compareReports"/>
+    <ms-rename-report-dialog ref="renameDialog" @submit="rename"></ms-rename-report-dialog>
+
   </ms-container>
 </template>
 
@@ -149,6 +153,8 @@ import ShowMoreBtn from "../../track/case/components/ShowMoreBtn";
 import {_filter, _sort, getLastTableSortField, saveLastTableSortField} from "@/common/js/tableUtils";
 import MsDialogFooter from "@/business/components/common/components/MsDialogFooter";
 import SameTestReports from "@/business/components/performance/report/components/SameTestReports";
+import MsRenameReportDialog from "@/business/components/common/components/report/MsRenameReportDialog";
+import MsTableColumn from "@/business/components/common/components/table/MsTableColumn";
 
 export default {
   name: "PerformanceTestReportList",
@@ -163,6 +169,8 @@ export default {
     MsContainer,
     MsMainContainer,
     ShowMoreBtn,
+    MsRenameReportDialog,
+    MsTableColumn,
   },
   created: function () {
     this.testId = this.$route.path.split('/')[3];
@@ -421,6 +429,16 @@ export default {
         });
       }
     },
+    openReNameDialog($event) {
+      this.$refs.renameDialog.open($event);
+    },
+    rename(data) {
+      this.$post("/performance/report/rename", data, () => {
+        this.$success(this.$t("organization.integration.successful_operation"));
+        this.initTableData();
+        this.$refs.renameDialog.close();
+      });
+    }
   }
 };
 </script>

@@ -20,6 +20,7 @@
         :current-protocol="currentProtocol"
         :screen-height="screenHeight"
         @setSelectRow="setSelectRow"
+        @selectCountChange="setSelectCounts"
         @refreshTable="initTable"
         ref="apitable">
 
@@ -32,7 +33,7 @@
 
     </api-list-container>
 
-    <table-select-count-bar :count="selectRows.size"/>
+    <table-select-count-bar :count="selectCounts"/>
   </div>
 
 </template>
@@ -66,7 +67,8 @@ export default {
       tableData: [],
       environmentId: "",
       total: 0,
-      selectRows: new Set()
+      selectRows: new Set(),
+      selectCounts: 0
     };
   },
   props: {
@@ -121,6 +123,9 @@ export default {
     setSelectRow(setSelectRow) {
       this.selectRows = setSelectRow;
     },
+    setSelectCounts(data) {
+      this.selectCounts = data;
+    },
     isApiListEnableChange(data) {
       this.$emit('isApiListEnableChange', data);
     },
@@ -141,7 +146,7 @@ export default {
       } else {
         this.condition.protocol = "HTTP";
       }
-
+      this.condition.filters = {status: ["Prepare", "Underway", "Completed"]};
       let url = '/api/definition/list/';
       if (this.isTestPlan) {
         url = '/api/definition/list/relevance/';

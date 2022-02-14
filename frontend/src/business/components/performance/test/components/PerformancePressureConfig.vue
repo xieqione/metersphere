@@ -305,12 +305,17 @@ export default {
     reportId: {
       type: String
     },
+    report: {
+      type: Object
+    },
     isReadOnly: {
       type: Boolean,
       default() {
         return false;
       }
-    }
+    },
+    isShare: Boolean,
+    shareId: String,
   },
   data() {
     return {
@@ -354,7 +359,12 @@ export default {
     } else {
       this.calculateTotalChart();
     }
-    this.resourcePool = this.test.testResourcePoolId;
+    if (this.test) {
+      this.resourcePool = this.test.testResourcePoolId;
+    }
+    if (this.report) {
+      this.resourcePool = this.report.testResourcePoolId;
+    }
     this.getResourcePools();
   },
   watch: {
@@ -382,10 +392,17 @@ export default {
       }
       this.getResourcePools();
     },
+    report() {
+      this.resourcePool = this.report.testResourcePoolId;
+    }
   },
   methods: {
     getResourcePools() {
-      this.result = this.$get('/testresourcepool/list/quota/valid', response => {
+      let url = '/testresourcepool/list/quota/valid';
+      if (this.isShare) {
+        url = '/share/testresourcepool/list/quota/valid';
+      }
+      this.result = this.$get(url, response => {
         this.resourcePools = response.data;
         // 如果当前的资源池无效 设置 null
         if (response.data.filter(p => p.id === this.resourcePool).length === 0) {
@@ -405,6 +422,9 @@ export default {
       }
       if (!url) {
         return;
+      }
+      if (this.isShare) {
+        url = '/share/performance/report/get-load-config/' + this.reportId;
       }
       this.$get(url, (response) => {
         if (response.data) {
@@ -519,6 +539,9 @@ export default {
       if (!url) {
         return;
       }
+      if (this.isShare) {
+        url = '/share/performance/report/get-jmx-content/' + this.reportId;
+      }
       let threadGroups = [];
       this.$get(url, (response) => {
         response.data.forEach(d => {
@@ -626,6 +649,7 @@ export default {
           smooth: false,
           symbolSize: 5,
           showSymbol: false,
+          sampling: 'lttb',
           itemStyle: {
             color: hexToRgb(color[i % color.length]),
             borderColor: 'rgba(137,189,2,0.27)',
@@ -633,6 +657,10 @@ export default {
           },
         };
 
+        if (tg.rampUpTime > 10000) {
+          this.$warning(this.$t('load_test.ramp_up_tips'));
+          return;
+        }
 
         let timePeriod = Math.floor(tg.rampUpTime / tg.step);
         let timeInc = timePeriod;

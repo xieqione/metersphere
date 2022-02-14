@@ -246,12 +246,15 @@ export default {
           this.initData();
         });
       }
+    },
+    selectDataCounts(value) {
+      this.$emit("selectCountChange", value);
     }
   },
   methods: {
     initData(){
       //初始化数据是否显示提示块
-      if(this.data.length > 0){
+      if(this.data && this.data.length > 0){
         this.data[0].showBatchTip = true;
       }
     },

@@ -1,6 +1,7 @@
 export default {
   commons: {
     project_permission: '请先添加该项目权限',
+    no_permission:'暂无权限',
     failure_continues: "失败继续",
     full_screen_editing: "全屏编辑",
     trash: "回收站",
@@ -865,6 +866,7 @@ export default {
     admin_not_allow_delete: '系统用户组不支持删除!',
     select_type: '请选择所属类型',
     system: '系统',
+    personal: '个人信息',
     organization: '组织',
     workspace: '工作空间',
     project: '项目',
@@ -938,12 +940,13 @@ export default {
     not_exist: "测试报告不存在",
     batch_delete: "批量删除报告",
     delete_batch_confirm: '确认批量删除报告',
-    response_time: '响应时间(s)',
+    response_time: '响应(s)',
     max_users: '并发数',
     file_id: '文件ID',
     avg_response_time: '平均响应时间',
     tps: '每秒传输的事物处理个数',
-    plan_share_url: '链接跳转是否登陆'
+    plan_share_url: '链接跳转是否登陆',
+    rename_report: '重命名报告'
   },
   load_test: {
     id: '测试ID',
@@ -995,6 +998,7 @@ export default {
     ramp_up_time_within: '在',
     ramp_up_time_minutes: '秒内，分',
     ramp_up_time_seconds: '秒内增加并发用户',
+    ramp_up_tips: 'RampUp 过大，图表渲染卡顿不予展示，这并不影响测试执行，请以实际结果为准',
     iterate_num: '迭代次数',
     by_iteration: '按迭代次数',
     by_duration: '按持续时间',
@@ -1138,6 +1142,16 @@ export default {
       delete_mock_expect: "确认删除这条预期吗？",
       rule: {
         input_code: "请输入 HTTP Code"
+      },
+      range_type:{
+        value_eq: "值-等于[value=]",
+        value_not_eq: "值-不等于[value!=]",
+        value_contain:"值-包含[include=]",
+        length_eq: "长度-等于[length=]",
+        length_not_eq: "长度-不等于[length!=]",
+        length_large_than:"长度-大于[length>]",
+        length_shot_than:"长度-小于[length<]",
+        regular_match: "正则匹配",
       }
     },
     definition: {
@@ -1817,6 +1831,7 @@ export default {
         swagger_schedule: "swagger",
         confirm: {
           close_title: "要关闭这条定时任务吗？",
+          open_title: "要开启这条定时任务吗？",
         }
       }
     },
@@ -2098,6 +2113,11 @@ export default {
       test_plan_load_case_count: "性能用例数",
       test_plan_component_case_count: "步骤用例数",
       data_name: "数据名称",
+      test_plan_batch_switch: "批量开/关定时任务",
+      batch_update_schedule_enable: '更新{0}个测试计划的定时任务状态为',
+      batch_update_schedule_enable_alert: '注意：只能更新已设置了定时任务的测试计划',
+      next_run_time: '下次运行时间',
+      schedule_enabled: '已开启',
       load_case: {
         case: "性能用例",
         execution_status: "执行状态",
@@ -2639,6 +2659,8 @@ export default {
     personal_information_apikeys: "个人信息-API Keys",
     auth_title: "系统认证",
     group_permission: "用户组与权限",
+    error_report_library: "误报库",
+    enterprise_test_report: "项目报告",
     change_history: "变更记录",
     change_content: "变更内容"
   },
@@ -2987,12 +3009,19 @@ export default {
       delete: "删除",
       read: "查看脚本",
     },
+    personal_information:{
+      name:'设置',
+      personal_setting: '个人设置',
+      api_keys: 'API Keys',
+      edit_password: "修改密码",
+      third_account: '第三方平台账号',
+    },
     other: {
       track: "测试跟踪",
       api: "接口测试",
       performance: "性能测试",
       project: "项目设置",
-      report: "报表统计"
+      report: "报表统计",
     }
   },
   env_options: {
