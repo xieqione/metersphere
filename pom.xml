@@ -20,4 +20,6 @@
         <module>backend</module>
     </modules>
 
+    <!-- 测试：前端POM修改-->
+
 </project>
