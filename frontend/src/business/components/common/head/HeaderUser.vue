@@ -6,9 +6,9 @@
     <template v-slot:dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="personal">{{ $t('commons.personal_information') }}</el-dropdown-item>
-        <el-dropdown-item command="about">{{ $t('commons.about_us') }} <i class="el-icon-info"/></el-dropdown-item>
-        <el-dropdown-item command="help">{{ $t('commons.help_documentation') }}</el-dropdown-item>
-        <el-dropdown-item command="ApiHelp">{{ $t('commons.api_help_documentation') }}</el-dropdown-item>
+<!--        <el-dropdown-item command="about">{{ $t('commons.about_us') }} <i class="el-icon-info"/></el-dropdown-item>-->
+<!--        <el-dropdown-item command="help">{{ $t('commons.help_documentation') }}</el-dropdown-item>-->
+<!--        <el-dropdown-item command="ApiHelp">{{ $t('commons.api_help_documentation') }}</el-dropdown-item>-->
         <el-dropdown-item command="logout">{{ $t('commons.exit_system') }}</el-dropdown-item>
       </el-dropdown-menu>
     </template>
