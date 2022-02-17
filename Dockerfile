@@ -5,6 +5,7 @@ WORKDIR /workspace/app
 #COPY backend/target/*.jar .
 
 #手动配置将springboot打的jar包拷贝到指定目录（linux:/tmp/docker）
+COPY /*.jar .
 
 RUN mkdir -p dependency && (cd dependency; jar -xf ../*.jar)
 
