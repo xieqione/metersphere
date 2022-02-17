@@ -70,7 +70,7 @@ export default {
     operating: '操作',
     input_limit: '长度在 {0} 到 {1} 个字符',
     login: '登录',
-    welcome: '一站式开源持续测试平台',
+    welcome: '联影性能测试平台',
     theme_color: '主题色',
     username: '姓名',
     password: '密码',

@@ -1,7 +1,10 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
 
-COPY backend/target/*.jar .
+#官方配置
+#COPY backend/target/*.jar .
+
+#手动配置将springboot打的jar包拷贝到指定目录（linux:/tmp/docker）
 
 RUN mkdir -p dependency && (cd dependency; jar -xf ../*.jar)
 

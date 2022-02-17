@@ -195,7 +195,7 @@ export default {
   components: {
     MsNotification,
     MsTaskCenter,
-    MsLanguageSwitch,
+    // MsLanguageSwitch,
     MsUser,
     MsView,
     MsTopMenus,
