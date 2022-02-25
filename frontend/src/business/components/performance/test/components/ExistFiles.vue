@@ -133,7 +133,7 @@ export default {
       loadType: 'jmx',
       existFiles: [],
       selectIds: new Set,
-      fileNumLimit: 10,
+      fileNumLimit: 15,
       condition: {}
     };
   },

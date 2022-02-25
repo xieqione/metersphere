@@ -112,7 +112,7 @@ export default {
       existFiles: [],
       fileList: [],
       uploadList: [],
-      fileNumLimit: 10,
+      fileNumLimit: 15,
       condition: {},
       projectId: getCurrentProjectID(),
       currentRow: null,

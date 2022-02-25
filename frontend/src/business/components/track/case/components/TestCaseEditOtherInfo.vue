@@ -51,7 +51,7 @@
             :http-request="handleUpload"
             :on-exceed="handleExceed"
             multiple
-            :limit="20"
+            :limit="8"
             :disabled="readOnly"
             :file-list="fileList">
             <el-button icon="el-icon-plus" :disabled="readOnly" size="mini"></el-button>
