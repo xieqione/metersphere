@@ -162,7 +162,7 @@ export default {
       tableData: [],
       uploadList: [],
       metadataIdList: [],
-      fileNumLimit: 10,
+      fileNumLimit: 15,
       threadGroups: [],
       loadFileVisible: false,
       currentPage: 1,

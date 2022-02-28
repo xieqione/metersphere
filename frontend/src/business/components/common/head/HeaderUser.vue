@@ -6,9 +6,9 @@
     <template v-slot:dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="personal">{{ $t('commons.personal_information') }}</el-dropdown-item>
-        <el-dropdown-item command="about">{{ $t('commons.about_us') }} <i class="el-icon-info"/></el-dropdown-item>
+<!--        <el-dropdown-item command="about">{{ $t('commons.about_us') }} <i class="el-icon-info"/></el-dropdown-item>-->
         <el-dropdown-item command="help">{{ $t('commons.help_documentation') }}</el-dropdown-item>
-        <el-dropdown-item command="ApiHelp">{{ $t('commons.api_help_documentation') }}</el-dropdown-item>
+<!--        <el-dropdown-item command="ApiHelp">{{ $t('commons.api_help_documentation') }}</el-dropdown-item>-->
         <el-dropdown-item command="logout">{{ $t('commons.exit_system') }}</el-dropdown-item>
       </el-dropdown-menu>
     </template>
@@ -62,7 +62,7 @@ export default {
           this.$refs.aboutUs.open();
           break;
         case "help":
-          window.open('https://metersphere.io/docs/index.html', "_blank");
+          window.open('https://navi.united-imaging.com/uGalaxy/UCloud/_wiki/wikis/UCloud.wiki/4235/%E6%96%B9%E8%88%9F%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C', "_blank");
           break;
         case "ApiHelp":
           window.open('/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config', "_blank");

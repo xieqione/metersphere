@@ -45,7 +45,7 @@
       <el-row>
         <el-col :span="20" :offset="1">
           <el-upload
-            accept=".jpg,.jpeg,.png,.xlsx,.doc,.pdf,.docx,.txt"
+            accept=".jpg,.jpeg,.png,.xlsx,.doc,.pdf,.docx,.txt,.dcm"
             action=""
             :show-file-list="false"
             :before-upload="beforeUpload"

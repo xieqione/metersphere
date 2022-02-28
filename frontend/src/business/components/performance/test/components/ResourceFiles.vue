@@ -9,7 +9,7 @@
       <template v-slot:button>
         <el-upload
           style="margin-bottom: 10px;"
-          accept=".jmx,.jar,.csv,.json,.pdf,.jpg,.png,.jpeg,.doc,.docx,.xlsx,.txt"
+          accept=".jmx,.jar,.csv,.json,.pdf,.jpg,.png,.jpeg,.doc,.docx,.xlsx,.txt,.dcm"
           action=""
           :limit="fileNumLimit"
           multiple
@@ -49,7 +49,7 @@
         <template v-slot:default="scope">
           <el-upload
             style="width: 38px; float: left;"
-            accept=".jmx,.jar,.csv,.json,.pdf,.jpg,.png,.jpeg,.doc,.docx,.xlsx,.txt"
+            accept=".jmx,.jar,.csv,.json,.pdf,.jpg,.png,.jpeg,.doc,.docx,.xlsx,.txt,.dcm"
             action=""
             :limit="fileNumLimit"
             :show-file-list="false"
@@ -109,7 +109,7 @@ export default {
       existFiles: [],
       fileList: [],
       uploadList: [],
-      fileNumLimit: 10,
+      fileNumLimit: 15,
       condition: {},
       projectId: getCurrentProjectID(),
       currentRow: null,
