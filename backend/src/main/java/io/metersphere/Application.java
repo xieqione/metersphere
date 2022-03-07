@@ -26,7 +26,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @PropertySource(value = {
         "classpath:/base.properties",
 //        "file:/opt/metersphere/conf/metersphere.properties",
-        "file:E:\\metersphere\\backend\\src\\main\\resources\\metersphere.properties",
+        "file:F:\\git-fork-project\\metersphere\\backend\\src\\main\\resources\\metersphere.properties",
 }, encoding = "UTF-8", ignoreResourceNotFound = true)
 public class Application {
     public static void main(String[] args) {
